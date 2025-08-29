@@ -4,9 +4,8 @@ import { Button } from "./ui/button";
 
 const BestSection = () => {
   return (
-    <div className="flex bg-violet-100 justify-center">
+    <div className="flex bg-white justify-center">
       <div className="flex flex-col lg:flex-row w-full md:w-[90%] lg:w-[80%] py-10 lg:py-20 gap-10 lg:gap-20">
-        
         {/* LEFT SECTION */}
         <div className="flex flex-col items-center lg:items-start space-y-5">
           {/* Row 1 */}
@@ -72,12 +71,20 @@ const BestSection = () => {
           <p className="text-base sm:text-lg lg:text-2xl">
             Trusted Online Store for Quality Pet Products and Supplies
           </p>
-          <p className="text-sm sm:text-base lg:text-xl">
+          <p className="text-sm sm:text-base lg:text-2xl">
             Found a product you want?
           </p>
-          <div>
-            <Button className="px-6 py-4 sm:px-8 sm:py-5 lg:px-10 lg:py-6 bg-orange-200 cursor-pointer rounded-[30px] text-black font-bold text-sm sm:text-lg lg:text-xl hover:bg-orange-300">
-              Contact Us
+          <div className="flex max-md:justify-center gap-5">
+            <Button className="bg-transparent border-[2px] border-gray-500 w-[140px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-black/10 rounded-[17px] text-black">
+              <p className="font-medium text-[12px] lg:text-[25px]">
+                Contact
+              </p>
+            </Button>
+
+            <Button className="bg-[#A0522D] w-[140px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-[#A0522D]/90 rounded-[17px]">
+              <p className="font-medium text-[12px] lg:text-[25px] text-white">
+                Browse products
+              </p>
             </Button>
           </div>
         </div>

@@ -9,47 +9,63 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Image from "next/image";
 import Link from "next/link";
-import { useStateContext } from "@/context/StateContext";
-import { navItems } from "@/lib";
+import { MobileNavItems } from "@/lib";
+import { Menu, ShoppingBag, X } from "lucide-react";
 
 const MobileNav = () => {
-  const { totalQuantities } = useStateContext();
 
   return (
-    <nav className="flex justify-between items-center p-3 fixed top-0 left-0 w-full z-50">
-      <div className="text-gray-199 font-semibold">Becklil&apos;s A&P</div>
+    <nav className="flex justify-between items-center px-3 py-10 fixed top-0 left-0 right-0 w-full z-50 bg-black/40">
+      <div className="text-white font-bold">Becklil&apos;s A&P</div>
       <div className="flex items-center gap-2">
         <div className="relative">
           <Link href={"/cart"}>
-            <Image src={"/icons/bag.png"} alt="bag" width={30} height={30} />
+            <ShoppingBag stroke="white" />
 
-            <p className="absolute top-2 left-2.5">{totalQuantities}</p>
+            {/* <p className="absolute top-2 left-2.5">{totalQuantities}</p> */}
           </Link>
         </div>
         <Sheet>
           <SheetTrigger>
             <div className="cursor-pointer">
-              <Image src={"/icons/menu.png"} alt="add" width={25} height={25} />
+              <Menu className="text-white" width={30} height={30} />
             </div>
           </SheetTrigger>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Becklil&apos;s A&P</SheetTitle>
-            </SheetHeader>
+          <SheetContent
+            side="left"
+            className="bg-[#F5F5DC] outline-none border-none [&>button]:hidden"
+          >
+            <div className="flex justify-between items-center px-3 py-2">
+              <SheetClose asChild>
+                <X stroke="black" size={30} />
+              </SheetClose>
 
-            <SheetClose>
-              <nav>
-                <ul>
-                  {navItems.map((item) => (
-                    <SheetClose asChild key={item.name}>
-                      <li className="my-5">{item.name}</li>
-                    </SheetClose>
-                  ))}
-                </ul>
-              </nav>
-            </SheetClose>
+              <SheetHeader>
+                <SheetTitle className="font-bold">
+                  Becklil&apos;s A&P
+                </SheetTitle>
+              </SheetHeader>
+
+              <SheetClose asChild>
+                <ShoppingBag stroke="black" size={30} />
+              </SheetClose>
+            </div>
+
+            <nav className="mt-10">
+              <ul>
+                {MobileNavItems.map((item) => (
+                  <SheetClose asChild key={item.name}>
+                    <Link href={item.href}>
+                      <li className="px-3 my-10 text-[40px] font-bold">
+                        {item.name}
+                      </li>
+                      <div className="w-full border-[0.5px] border-black/50"/>
+                    </Link>
+                  </SheetClose>
+                ))}
+              </ul>
+            </nav>
           </SheetContent>
         </Sheet>
       </div>

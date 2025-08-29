@@ -55,7 +55,7 @@ const CartItem = ({ item }: CartItemProps) => {
       </div>
 
       <div>
-        <p className="text-md font-bold">${item.price}</p>
+        <p className="text-md font-bold">GHS{" "}{item.price}</p>
       </div>
     </div>
   );

@@ -1,14 +1,27 @@
 "use client";
 
+import Link from "next/link";
 import { Product, useStateContext } from "../context/StateContext";
 import CartItem from "./CartItem";
+import { Button } from "./ui/button";
 
 const Cart = () => {
-  const {
-    totalPrice,
-    totalQuantities,
-    cartItems,
-  } = useStateContext();
+  const { totalPrice, totalQuantities, cartItems } = useStateContext();
+
+  const cartSummary = cartItems
+    .map(
+      (item, index) =>
+        `${index + 1}. ${item.name} x${item.quantity} = GHS ${
+          item.price * item.quantity
+        }`
+    )
+    .join("\n");
+
+  const message = `Hello, I'd like to place an order:\n\n${cartSummary}\n\nTotal: GHS ${totalPrice}`;
+
+  const whatsappLink = `https://wa.me/${233204628959}?text=${encodeURIComponent(
+    message
+  )}`;
 
   //   const handleCheckout = async () => {
   //     const stripe = await getStripe();
@@ -31,10 +44,10 @@ const Cart = () => {
   //   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 space-x-5 my-20 max-md:px-5 max-md:gap-10">
+    <div className="grid grid-cols-1 lg:grid-cols-3 space-x-5 my-40 max-md:px-5 max-md:gap-10">
       <div className="lg:col-span-2 space-y-5">
         <h4 className="font-semibold text-2xl">Bag</h4>
-        
+
         {cartItems.map((item: Product) => (
           <div key={item._id}>
             <CartItem item={item} />
@@ -52,16 +65,25 @@ const Cart = () => {
           </div>
           <div className="flex justify-between items-center">
             <p>Subtotal</p>
-            <p>{totalPrice}</p>
+            <p>GHS{" "}{totalPrice}</p>
           </div>
           <div className="flex justify-between items-center">
             <p>Delivery fee</p>
             <p> - </p>
           </div>
-          <div className="border-gray-300 border-[0.5px] my-5"/>
+          <div className="border-gray-300 border-[0.5px] my-5" />
           <div className="flex justify-between items-center text-gray-700">
             <p>Total</p>
-            <p>{totalPrice}</p>
+            <p>GHS{" "}{totalPrice}</p>
+          </div>
+          <div className="flex justify-center my-10">
+            <Link href={whatsappLink} target="_blank">
+              <Button className="bg-[#A0522D] px-5 py-5 cursor-pointer hover:bg-[#A0522D]/90">
+                <p className="font-semibold text-[14px] text-white">
+                  Checkout on Whatsapp
+                </p>
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import BestSection from '@/components/BestSection';
 import HeroSection from '@/components/HeroSection';
-import Info from '@/components/Info';
-import Products from '@/components/Products';
+import SecondSection from '@/components/SecondSection';
+import StoreSection from '@/components/StoreSection';
 import React from 'react';
 
 const page = () => {
@@ -9,9 +9,9 @@ const page = () => {
     <div className='min-h-screen'>
       <HeroSection />
 
-      <Info />
+      <SecondSection />
 
-      <Products />
+      <StoreSection />
 
       <BestSection />
     </div>

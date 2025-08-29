@@ -1,6 +1,6 @@
-import Footer from "@/components/Footer";
 import Navbar from "../../components/Navbar"
 import MobileNav from "@/components/MobileNav";
+import NewFooter from "@/components/NewFooter";
 
 export default function RootLayout({
   children,
@@ -17,7 +17,7 @@ export default function RootLayout({
         </div>
         <div>{children}</div>
         <div>
-          <Footer />
+          <NewFooter />
         </div>
       </main>
   );

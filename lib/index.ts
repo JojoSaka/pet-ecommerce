@@ -29,8 +29,15 @@ export const Categories = [
 export const navItems = [
   { name: "Home", href: "/" },
   { name: "Shop", href: "/shop" },
-  // { name: "About", href: "/about" },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
+];
+
+export const MobileNavItems = [
+  { name: "HOME", href: "/" },
+  { name: "SHOP", href: "/shop" },
+  { name: "ABOUT", href: "/about" },
+  { name: "CONTACT", href: "/contact" },
 ];
 
 export const PetProducts = [
