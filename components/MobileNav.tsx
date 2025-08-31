@@ -16,12 +16,12 @@ import { Menu, ShoppingBag, X } from "lucide-react";
 const MobileNav = () => {
 
   return (
-    <nav className="flex justify-between items-center px-3 py-10 fixed top-0 left-0 right-0 w-full z-50 bg-black/40">
-      <div className="text-white font-bold">Becklil&apos;s A&P</div>
+    <nav className="flex justify-between items-center px-3 py-10 fixed top-0 left-0 right-0 w-full z-50 bg-[#F5F5DC]">
+      <div className="font-bold">Becklil&apos;s A&P</div>
       <div className="flex items-center gap-2">
         <div className="relative">
           <Link href={"/cart"}>
-            <ShoppingBag stroke="white" />
+            <ShoppingBag stroke="black" />
 
             {/* <p className="absolute top-2 left-2.5">{totalQuantities}</p> */}
           </Link>
@@ -29,7 +29,7 @@ const MobileNav = () => {
         <Sheet>
           <SheetTrigger>
             <div className="cursor-pointer">
-              <Menu className="text-white" width={30} height={30} />
+              <Menu className="text-black" width={30} height={30} />
             </div>
           </SheetTrigger>
           <SheetContent
@@ -57,7 +57,7 @@ const MobileNav = () => {
                 {MobileNavItems.map((item) => (
                   <SheetClose asChild key={item.name}>
                     <Link href={item.href}>
-                      <li className="px-3 my-10 text-[40px] font-bold">
+                      <li className="px-3 my-5 text-[30px] font-bold">
                         {item.name}
                       </li>
                       <div className="w-full border-[0.5px] border-black/50"/>

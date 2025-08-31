@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar"
+import Navbar from "@/components/Custom/Navbar";
 import MobileNav from "@/components/MobileNav";
 import NewFooter from "@/components/NewFooter";
 

@@ -1,19 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@font-face {
-    font-family: "Modern Negra";
-    src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
-}
+/* @font-face {
+  font-family: "Inter" , sans-serif;
+  src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
+} */
 
 @theme {
-    --color-yellow: #e7d393;
-    --color-white-100: #efefef;
-    --font-sans: "Mona Sans", sans-serif;
-    --font-modern-negra: "Modern Negra", sans-serif;
-    --font-serif: "DM Serif Text", serif;
+  --color-yellow: #e7d393;
+  --color-white-100: #efefef;
+  --font-sans: "Mona Sans", sans-serif;
+  --font-modern-negra: "Modern Negra", sans-serif;
+  --font-serif: "DM Serif Text", serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -22,27 +23,27 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", "Sans Serif";
+  font-family: "Inter";
 }
 
 @utility text-gradient {
-    background: linear-gradient(to bottom, #ffffff, #898989);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  background: linear-gradient(to bottom, #ffffff, #898989);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @utility radial-gradient {
-    background: radial-gradient(
-            circle at center,
-            #434343 0%,
-            #000 80%,
-            transparent 100%
-    );
+  background: radial-gradient(
+    circle at center,
+    #434343 0%,
+    #000 80%,
+    transparent 100%
+  );
 }
 
 @utility flex-center {
-    @apply flex justify-center items-center;
+  @apply flex justify-center items-center;
 }
 
 @layer utilities {
@@ -237,34 +238,48 @@ body {
   }
 
   #contact {
-        @apply relative md:mt-20 mt-0 px-4 text-center w-full overflow-hidden;
+    @apply relative md:mt-20 mt-0 px-4 text-center w-full overflow-hidden;
 
-        #f-left-leaf {
-            @apply absolute bottom-0 left-0 pointer-events-none lg:w-fit w-1/3;
-        }
-
-        #f-right-leaf {
-            @apply absolute top-0 right-0 pointer-events-none hidden lg:block;
-        }
-
-        .content {
-            @apply container mx-auto lg:py-14 2xl:py-32 py-16 flex flex-col justify-between gap-10 min-h-dvh;
-
-            h2 {
-                @apply lg:text-6xl 2xl:text-8xl text-5xl font-modern-negra md:translate-y-0 translate-y-5;
-            }
-
-            h3 {
-                @apply uppercase xl:text-base 2xl:text-lg text-base mb-2;
-            }
-
-            p {
-                @apply lg:text-2xl 2xl:text-3xl text-sm;
-            }
-        }
-
-        .drink-img {
-            @apply absolute bottom-0 right-0 lg:w-96 w-1/3 pointer-events-none;
-        }
+    #f-left-leaf {
+      @apply absolute bottom-0 left-0 pointer-events-none lg:w-fit w-1/3;
     }
+
+    #f-right-leaf {
+      @apply absolute top-0 right-0 pointer-events-none hidden lg:block;
+    }
+
+    .content {
+      @apply container mx-auto lg:py-14 2xl:py-32 py-16 flex flex-col justify-between gap-10 min-h-dvh;
+
+      h2 {
+        @apply lg:text-6xl 2xl:text-8xl text-5xl font-modern-negra md:translate-y-0 translate-y-5;
+      }
+
+      h3 {
+        @apply uppercase xl:text-base 2xl:text-lg text-base mb-2;
+      }
+
+      p {
+        @apply lg:text-2xl 2xl:text-3xl text-sm;
+      }
+    }
+
+    .drink-img {
+      @apply absolute bottom-0 right-0 lg:w-96 w-1/3 pointer-events-none;
+    }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 20s linear infinite;
 }

@@ -29,15 +29,15 @@ export const Categories = [
 export const navItems = [
   { name: "Home", href: "/" },
   { name: "Shop", href: "/shop" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  // { name: "About", href: "/about" },
+  { name: "Our Mission", href: "/contact" },
 ];
 
 export const MobileNavItems = [
   { name: "HOME", href: "/" },
   { name: "SHOP", href: "/shop" },
-  { name: "ABOUT", href: "/about" },
-  { name: "CONTACT", href: "/contact" },
+  // { name: "ABOUT", href: "/about" },
+  { name: "OUR MISSION", href: "/contact" },
 ];
 
 export const PetProducts = [

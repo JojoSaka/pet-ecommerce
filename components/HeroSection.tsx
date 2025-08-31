@@ -60,14 +60,14 @@ const HeroSection = () => {
           </p>
 
           <div className="flex justify-center gap-5">
-            <Button className="bg-transparent border-[2px] border-white w-[140px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-black/50 rounded-[17px]">
-              <p className="font-medium text-[12px] lg:text-[25px] text-[#EBEBEB]">
+            <Button className="bg-transparent border-[2px] border-white w-[160px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-black/50 rounded-[8px] lg:rounded-[17px]">
+              <p className="font-medium text-[16px] lg:text-[25px] text-[#EBEBEB]">
                 Contact
               </p>
             </Button>
 
-            <Button className="bg-white border-[2px] border-white w-[140px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-white/90 rounded-[17px]">
-              <p className="font-medium text-[12px] lg:text-[25px] text-black">
+            <Button className="bg-white border-[2px] border-white w-[160px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-white/90 rounded-[8px] lg:rounded-[17px]">
+              <p className="font-medium text-[16px] lg:text-[25px] text-black">
                 Browse products
               </p>
             </Button>
