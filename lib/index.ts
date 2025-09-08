@@ -2,26 +2,37 @@ export const Categories = [
   {
     id: 1,
     name: "All Products",
+    title: "All Products",
     icon: "product",
   },
   {
     id: 2,
-    name: "Cat Food",
-    icon: "cat",
-  },
-  {
-    id: 3,
-    name: "Dog Food",
+    name: "Dog",
+    title: "DOG",
     icon: "dog",
   },
   {
+    id: 3,
+    name: "Cat",
+    title: "CAT",
+    icon: "cat",
+  },
+  {
     id: 4,
-    name: "Bird Food",
+    name: "Bird",
+    title: "BIRD",
     icon: "bird",
   },
   {
     id: 5,
-    name: "fish Food",
+    name: "Fish",
+    title: "FISH",
+    icon: "fish",
+  },
+  {
+    id: 6,
+    name: "Other",
+    title: "ACCESSORIES",
     icon: "fish",
   },
 ];
@@ -100,3 +111,36 @@ export const socials = [
 	url: "#",
  },
 ];
+
+export const storeProducts = [
+  {
+    id: "1234rtfd",
+    name: "Dog Spice",
+    description: "",
+    price: 45.00,
+    quantity: 0,
+    image: "/assets/product.jpg",
+    created_at: "2025-09-08 14:28:36.199787",
+    category: "DOG"
+  },
+  {
+    id: "jhyyg7898",
+    name: "Cat Spice",
+    description: "",
+    price: 20.00,
+    quantity: 0,
+    image: "/assets/product.jpg",
+    created_at: "2025-09-08 14:28:36.199787",
+    category: "CAT"
+  },
+  {
+    id: "iodg88899",
+    name: "Bird Spice",
+    description: "",
+    price: 65.00,
+    quantity: 0,
+    image: "/assets/product.jpg",
+    created_at: "2025-09-08 14:28:36.199787",
+    category: "BIRD"
+  },
+]

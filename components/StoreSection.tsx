@@ -1,11 +1,15 @@
+"use client"
+
 import { ArrowRight } from "lucide-react";
 import React from "react";
 import ItemCard from "./Custom/ItemCard";
+import { storeProducts } from "@/lib";
 
 const StoreSection = () => {
+
   return (
-    <div className="bg-[#F5F5DC] pt-5 pb-20">
-      <div className="w-[90%] mx-auto my-10 lg:my-20">
+    <div className="bg-[#F5F5DC] pt-5 pb-40">
+      <div className="w-[90%] mx-auto my-5 lg:my-20">
         <h1>Logo</h1>
         <div className="flex flex-col lg:flex-row justify-between lg:items-center">
           <h1 className="text-[40px] font-bold">Store</h1>
@@ -21,10 +25,19 @@ const StoreSection = () => {
         </div>
       </div>
 
-      <div className="w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
+      <div className="w-[90%] mx-auto grid grid-cols-1 max-md:hidden lg:grid-cols-3 gap-10">
+        {storeProducts.map((product) => (
+            <div key={product.id}>
+              <ItemCard product={product} />
+            </div>
+          ))}
+      </div>
+      <div className="w-[90%] mx-auto grid grid-cols-1 lg:hidden">
+        {storeProducts.slice(0.2).map((product) => (
+            <div key={product.id}>
+              <ItemCard product={product} />
+            </div>
+          ))}
       </div>
     </div>
   );

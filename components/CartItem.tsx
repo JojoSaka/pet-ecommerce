@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import { Product, useStateContext } from "@/context/StateContext";
+import { useStateContext } from "@/context/StateContext";
+import { X } from "lucide-react";
 
 type CartItemProps = {
   item: Product;
@@ -8,54 +9,64 @@ type CartItemProps = {
 
 const CartItem = ({ item }: CartItemProps) => {
   const { toggleCartItemQuantity, onRemove } = useStateContext();
+
   return (
-    <div className="flex justify-between">
-      <div className="flex gap-5">
-        <div className="w-[200px] space-y-3">
-          <div className="flex justify-center items-center w-[200px] h-[200px] bg-gray-50">
-            <Image src={"/assets/can.png"} alt="can" width={150} height={150} />
+    <div className="flex gap-5 justify-between w-full px-5">
+      <div className="flex gap-5 w-1/2 rounded-[20px]">
+        <div className="w-full h-[150px] rounded-[20px] overflow-hidden">
+          <Image
+            src={item.image}
+            alt="can"
+            width={300}
+            height={300}
+            className="w-full h-full overflow-hidden"
+          />
+        </div>
+      </div>
+
+      <div className="w-1/2 flex flex-col justify-between py-1">
+        <div className="flex justify-between">
+          <div className="text-md text-gray-800 space-y-2">
+            <h4 className="font-bold">{item.name}</h4>
+            <p className="text-md font-bold">GHS {item.price}</p>
           </div>
-          <div className="flex justify-between items-center border border-gray-300 rounded-3xl p-3">
-            {item.quantity < 2 ? (
-              <button className="cursor-pointer" onClick={() => onRemove(item)}>
-                <Image
-                  src={"/icons/bin.png"}
-                  alt="bin"
-                  width={20}
-                  height={20}
-                />
-              </button>
-            ) : (
-              <button className="cursor-pointer" onClick={() => toggleCartItemQuantity(item._id, "dec")}>
-                <Image
-                  src={"/icons/minus.png"}
-                  alt="bin"
-                  width={20}
-                  height={20}
-                />
-              </button>
-            )}
-            <p>{item.quantity}</p>
-            <button className="cursor-pointer" onClick={() => toggleCartItemQuantity(item._id, "inc")}>
+
+          <div className="cursor-pointer" onClick={() => onRemove(item)}>
+            <X size={20}/>
+          </div>
+        </div>
+
+        <div className="flex justify-between items-center border border-gray-300 rounded-3xl p-3">
+          {item.quantity < 2 ? (
+            <button className="cursor-pointer" onClick={() => onRemove(item)}>
+              <Image src={"/icons/bin.png"} alt="bin" width={20} height={20} />
+            </button>
+          ) : (
+            <button
+              className="cursor-pointer"
+              onClick={() => toggleCartItemQuantity(item.id, "dec")}
+            >
               <Image
-                src={"/icons/increase.png"}
-                alt="increase"
+                src={"/icons/minus.png"}
+                alt="bin"
                 width={20}
                 height={20}
               />
             </button>
-          </div>
+          )}
+          <p>{item.quantity}</p>
+          <button
+            className="cursor-pointer"
+            onClick={() => toggleCartItemQuantity(item.id, "inc")}
+          >
+            <Image
+              src={"/icons/increase.png"}
+              alt="increase"
+              width={20}
+              height={20}
+            />
+          </button>
         </div>
-
-        <div className="text-md text-gray-800 space-y-2">
-          <h4 className="font-bold">{item.name}</h4>
-          <p>{item.category}</p>
-          <p>Product available</p>
-        </div>
-      </div>
-
-      <div>
-        <p className="text-md font-bold">GHS{" "}{item.price}</p>
       </div>
     </div>
   );

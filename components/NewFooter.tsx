@@ -1,4 +1,5 @@
-import Image from "next/image";
+import { Facebook, Instagram } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import React from "react";
 
 const NewFooter = () => {
@@ -22,39 +23,21 @@ const NewFooter = () => {
 
           <div className="space-y-5">
             <h4 className="text-xl font-bold text-white">Social Media</h4>
-            <ul className="space-y-2 text-white">
-              <li className="text-md flex items-center gap-3 cursor-pointer">
+            <ul className="text-white flex items-center gap-3">
+              <li className="cursor-pointer">
                 <div>
-                  <Image
-                    src={"/icons/whatsapp.png"}
-                    alt="whatsapp"
-                    width={30}
-                    height={30}
-                  />
+                  <FaWhatsapp className="w-7 h-7"/>
                 </div>
-                <p>WhatsApp</p>
               </li>
-              <li className="text-md flex items-center gap-3 cursor-pointer">
+              <li className="cursor-pointer">
                 <div>
-                  <Image
-                    src={"/icons/instagram.png"}
-                    alt="instagram"
-                    width={30}
-                    height={30}
-                  />
+                  <Instagram />
                 </div>
-                <p>Instagram</p>
               </li>
-              <li className="text-md flex items-center gap-3 cursor-pointer">
+              <li className="cursor-pointer">
                 <div>
-                  <Image
-                    src={"/icons/facebook.png"}
-                    alt="facebook"
-                    width={30}
-                    height={30}
-                  />
+                  <Facebook />
                 </div>
-                <p>Facebook</p>
               </li>
             </ul>
           </div>
@@ -64,7 +47,7 @@ const NewFooter = () => {
       <div className="w-full border-[0.5px] border-white/30"/>
 
       <div className="py-10 w-[80%] lg:w-[90%] mx-auto text-white">
-        &copy; 2025 SK Tech Solutions
+        &copy; 2025 SK Tech Solutions. All rights reserved.
       </div>
     </div>
   );

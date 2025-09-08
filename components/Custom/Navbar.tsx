@@ -4,12 +4,14 @@ import { navItems } from "@/lib";
 import { ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useCartSheet } from "@/context/CartProvider";
 
 const Navbar = () => {
   const [active, setActive] = useState("/");
+  const { setOpen } = useCartSheet();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F5DC] py-5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F5DC] py-5 shadow-lg">
       <div className="w-[100%] flex justify-center">
         <div className="flex justify-between items-center w-[90%]">
           <div className="text-[20px] font-extrabold">BECKLIL&apos;S</div>
@@ -38,15 +40,15 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <Link href={"/cart"} onClick={() => setActive("")}>
-                <div className="cursor-pointer relative">
-                  <ShoppingBag stroke="black" />
-
-                  {/* <p className="absolute top-2 left-2.5">
-                {totalQuantities}
-              </p> */}
-                </div>
-              </Link>
+              <div
+                className="cursor-pointer relative"
+                onClick={() => {
+                  setActive("");
+                  setOpen(true);
+                }}
+              >
+                <ShoppingBag size={20} />
+              </div>
             </div>
           </div>
         </div>

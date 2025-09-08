@@ -12,24 +12,22 @@ import {
 import Link from "next/link";
 import { MobileNavItems } from "@/lib";
 import { Menu, ShoppingBag, X } from "lucide-react";
+import { useCartSheet } from "@/context/CartProvider";
 
 const MobileNav = () => {
+  const { setOpen } = useCartSheet();
 
   return (
     <nav className="flex justify-between items-center px-3 py-10 fixed top-0 left-0 right-0 w-full z-50 bg-[#F5F5DC]">
       <div className="font-bold">Becklil&apos;s A&P</div>
-      <div className="flex items-center gap-2">
-        <div className="relative">
-          <Link href={"/cart"}>
-            <ShoppingBag stroke="black" />
-
-            {/* <p className="absolute top-2 left-2.5">{totalQuantities}</p> */}
-          </Link>
+      <div className="flex items-center gap-4">
+        <div className="relative" onClick={() => setOpen(true)}>
+          <ShoppingBag size={20}/>
         </div>
         <Sheet>
-          <SheetTrigger>
+          <SheetTrigger className="outline-none border-none">
             <div className="cursor-pointer">
-              <Menu className="text-black" width={30} height={30} />
+              <Menu className="text-black outline-none" width={30} height={30}/>
             </div>
           </SheetTrigger>
           <SheetContent
@@ -46,10 +44,6 @@ const MobileNav = () => {
                   Becklil&apos;s A&P
                 </SheetTitle>
               </SheetHeader>
-
-              <SheetClose asChild>
-                <ShoppingBag stroke="black" size={30} />
-              </SheetClose>
             </div>
 
             <nav className="mt-10">

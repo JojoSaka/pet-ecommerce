@@ -3,7 +3,7 @@ import Shop from "@/components/Shop";
 const page = () => {
 
   return (
-    <section>
+    <section className="bg-[#F5F5DC]">
       <Shop />
     </section>
   );

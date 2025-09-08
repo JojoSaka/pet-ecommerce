@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Product, useStateContext } from "../context/StateContext";
+import { useStateContext } from "../context/StateContext";
 import CartItem from "./CartItem";
 import { Button } from "./ui/button";
 
 const Cart = () => {
-  const { totalPrice, totalQuantities, cartItems } = useStateContext();
+  const { totalPrice, totalQuantities, cartItems, setCartItems } = useStateContext();
 
   const cartSummary = cartItems
     .map(
@@ -49,7 +49,7 @@ const Cart = () => {
         <h4 className="font-semibold text-2xl">Bag</h4>
 
         {cartItems.map((item: Product) => (
-          <div key={item._id}>
+          <div key={item.id}>
             <CartItem item={item} />
           </div>
         ))}
@@ -78,7 +78,7 @@ const Cart = () => {
           </div>
           <div className="flex justify-center my-10">
             <Link href={whatsappLink} target="_blank">
-              <Button className="bg-[#A0522D] px-5 py-5 cursor-pointer hover:bg-[#A0522D]/90">
+              <Button className="bg-[#A0522D] px-5 py-5 cursor-pointer hover:bg-[#A0522D]/90" onClick={() => setCartItems([])}>
                 <p className="font-semibold text-[14px] text-white">
                   Checkout on Whatsapp
                 </p>

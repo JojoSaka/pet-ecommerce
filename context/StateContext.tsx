@@ -2,14 +2,6 @@
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
-export type Product = {
-  _id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  [key: string]: any; // in case product has more fields
-};
-
 type StateContextType = {
   showCart: boolean;
   setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
@@ -31,20 +23,26 @@ const Context = createContext<StateContextType | undefined>(undefined);
 
 export const StateContext = ({ children }: { children: ReactNode }) => {
   const [showCart, setShowCart] = useState(false);
-  const [cartItems, setCartItems] = useState<Product[]>([]);
+  const [cartItems, setCartItems] = useState<Product[]>(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("cartItems");
+      return stored ? JSON.parse(stored) : [];
+    }
+    return [];
+  });
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
 
   const onAdd = (product: Product, quantity: number) => {
-    const checkProductInCart = cartItems.find((item) => item._id === product._id);
+    const checkProductInCart = cartItems.find((item) => item.id === product.id);
 
     setTotalPrice((prev) => prev + product.price * quantity);
     setTotalQuantities((prev) => prev + quantity);
 
     if (checkProductInCart) {
       const updatedCartItems = cartItems.map((cartProduct) =>
-        cartProduct._id === product._id
+        cartProduct.id === product.id
           ? { ...cartProduct, quantity: (cartProduct.quantity || 0) + quantity }
           : cartProduct
       );
@@ -55,35 +53,36 @@ export const StateContext = ({ children }: { children: ReactNode }) => {
   };
 
   const onRemove = (product: Product) => {
-    const foundProduct = cartItems.find((item) => item._id === product._id);
+    const foundProduct = cartItems.find((item) => item.id === product.id);
     if (!foundProduct) return;
 
-    const newCartItems = cartItems.filter((item) => item._id !== product._id);
+    const newCartItems = cartItems.filter((item) => item.id !== product.id);
 
-    setTotalPrice((prev) => prev - foundProduct.price * (foundProduct.quantity || 0));
-    setTotalQuantities((prev) => prev - (foundProduct.quantity || 0));
+    setTotalPrice((prev) => prev - product.price * (foundProduct.quantity || 0));
+    setTotalQuantities((prev) => Math.max(0, prev - (foundProduct.quantity || 0)));
     setCartItems(newCartItems);
   };
 
   const toggleCartItemQuantity = (id: string, value: "inc" | "dec") => {
-    const foundProduct = cartItems.find((item) => item._id === id);
+    const foundProduct = cartItems.find((item) => item.id === id);
+    const price = Number(foundProduct?.price);
     if (!foundProduct) return;
 
-    const newCartItems = cartItems.filter((item) => item._id !== id);
+    const newCartItems = cartItems.filter((item) => item.id !== id);
 
     if (value === "inc") {
       setCartItems([
         ...newCartItems,
         { ...foundProduct, quantity: (foundProduct.quantity || 0) + 1 },
       ]);
-      setTotalPrice((prev) => prev + foundProduct.price);
+      setTotalPrice((prev) => prev + price);
       setTotalQuantities((prev) => prev + 1);
     } else if (value === "dec" && (foundProduct.quantity || 0) > 1) {
       setCartItems([
         ...newCartItems,
         { ...foundProduct, quantity: (foundProduct.quantity || 0) - 1 },
       ]);
-      setTotalPrice((prev) => prev - foundProduct.price);
+      setTotalPrice((prev) => prev - price);
       setTotalQuantities((prev) => prev - 1);
     }
   };
@@ -123,7 +122,9 @@ export const StateContext = ({ children }: { children: ReactNode }) => {
 export const useStateContext = (): StateContextType => {
   const context = useContext(Context);
   if (!context) {
-    throw new Error("useStateContext must be used inside StateContext provider");
+    throw new Error(
+      "useStateContext must be used inside StateContext provider"
+    );
   }
   return context;
 };

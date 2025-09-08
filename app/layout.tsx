@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { StateContext } from "@/context/StateContext";
 import { Toaster } from "@/components/ui/sonner"
+import { CartProvider } from "@/context/CartProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,8 +25,12 @@ export default function RootLayout({
       <body
         className={inter.variable}
       >
-        <StateContext>{children}</StateContext>
-        <Toaster />
+        <StateContext>
+          <CartProvider>
+            {children}
+            <Toaster />
+          </CartProvider>
+        </StateContext>
       </body>
     </html>
   );
