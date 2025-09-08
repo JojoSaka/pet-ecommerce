@@ -75,7 +75,7 @@ const ItemCard = ({ product }: Product) => {
           <p className="text-center text-[24px]">GHS {price}</p>
         </div>
 
-        <button className="bg-[#A0522D] text-white text-[20px] lg:text-[30px] font-medium w-full py-3 rounded-[20px] shadow-lg cursor-pointer lg:hidden">
+        <button className="bg-[#A0522D] text-white text-[20px] lg:text-[30px] font-medium w-full py-3 rounded-[20px] shadow-lg cursor-pointer lg:hidden" onClick={() => AddProductToCart()}>
           Add to Cart
         </button>
       </div>
