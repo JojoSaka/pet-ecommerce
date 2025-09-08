@@ -18,12 +18,6 @@ type IKUploadResponse = {
   fileType?: string;
 };
 
-const {
-  env: {
-    imageKit: { publicKey, urlEndpoint },
-  },
-} = config;
-
 const authenticator = async () => {
   try {
     const response = await fetch("/api/imagekit");
@@ -104,8 +98,8 @@ const FileUpload = ({
 
   return (
     <ImageKitProvider
-      publicKey={publicKey}
-      urlEndpoint={urlEndpoint}
+      publicKey={process.env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY!}
+      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT!}
       authenticator={authenticator}
     >
       <IKUpload
