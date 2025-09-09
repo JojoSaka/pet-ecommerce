@@ -19,7 +19,7 @@ const MobileNav = () => {
 
   return (
     <nav className="flex justify-between items-center px-3 py-10 fixed top-0 left-0 right-0 w-full z-50 bg-[#F5F5DC]">
-      <div className="font-bold">Becklil&apos;s A&P</div>
+      <div className="font-bold">BECKLILS A&P</div>
       <div className="flex items-center gap-4">
         <div className="relative" onClick={() => setOpen(true)}>
           <ShoppingBag size={20}/>

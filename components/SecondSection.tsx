@@ -71,7 +71,7 @@ const SecondSection = () => {
       <div className="space-y-10">
         <h1 className="font-bold text-[30px] lg:text-[40px] text-center">Get the valuable needs <br /> of latest products</h1>
         <h4 className="font-medium text-[20px] lg:text-[30px] text-center hidden lg:block">Complete Collection of Pet Supplies for Dogs, Cats, <br /> Birds & More</h4>
-        <h4 className="font-medium text-[20px] lg:text-[30px] text-center lg:hidden">Complete Collection of Pet Supplies for <br /> Dogs, Cats, Birds & More</h4>
+        <h4 className="font-medium text-[18px] lg:text-[30px] text-center lg:hidden">Complete Collection of Pet Supplies <br /> for Dogs, Cats, Birds & More</h4>
       </div>
     </div>
   );

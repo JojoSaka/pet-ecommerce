@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div className="fixed top-0 left-0 right-0 w-[90%] z-50 flex justify-between items-center px-5 py-3 bg-black/40 z-30 mx-auto mt-5 rounded-[20px]">
+      <div className="fixed top-0 left-0 right-0 w-[90%] z-50 flex justify-between items-center px-5 py-3 bg-black/40 mx-auto mt-5 rounded-[20px]">
         <div className="text-white">Becklil&apos;s A&P</div>
 
         <div>

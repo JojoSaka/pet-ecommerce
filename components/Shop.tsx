@@ -12,11 +12,12 @@ const Shop = () => {
     <div className="space-y-10 pt-28 lg:pt-20">
       <div className="flex justify-center min-h-screen bg-[#F5F5DC]">
         <div className="w-[100%] md:w-[90%] space-y-10">
-          <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center">
             <div>
-              <h1 className="font-medium text-[40px]">Store</h1>
+              <h1 className="font-medium text-[40px] max-md:hidden">Store</h1>
+              <h1 className="font-medium text-[40px] px-5 lg:hidden">STORE</h1>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6 px-5">
+            <div className="flex flex-wrap lg:justify-center gap-4 md:gap-6 px-5">
               {Categories.map((category) => {
                 const isActive = cat === category.title;
 
@@ -34,7 +35,7 @@ const Shop = () => {
                     onClick={() => setCat(category.title)}
                   >
                     <div className="flex gap-3">
-                      <p className="font-medium text-[24px]">{category.name}</p>
+                      <p className="font-medium text-[14px] lg:text-[24px]">{category.name}</p>
                     </div>
                   </div>
                 );

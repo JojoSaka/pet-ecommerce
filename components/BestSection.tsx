@@ -1,7 +1,12 @@
+"use client"
+
 import React from "react";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 const BestSection = () => {
+  const router = useRouter();
+
   return (
     <div className="flex bg-white justify-center">
       {/* <div className="flex flex-col lg:flex-row w-full md:w-[90%] lg:w-[80%] py-10 lg:py-20 gap-10 lg:gap-20"> */}
@@ -75,13 +80,13 @@ const BestSection = () => {
             Found a product you want?
           </p>
           <div className="flex justify-center gap-5">
-            <Button className="bg-transparent border-[1px] border-[#A0522D] w-[160px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-black/10 rounded-[8px] lg:rounded-[17px] text-black">
+            <Button className="bg-transparent border-[1px] border-[#A0522D] w-[160px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-black/10 rounded-[8px] lg:rounded-[17px] text-black" onClick={() => router.push("/our-mission")}>
               <p className="font-medium text-[#A0522D] text-[16px] lg:text-[25px]">
                 Contact
               </p>
             </Button>
 
-            <Button className="bg-[#A0522D] w-[160px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-[#A0522D]/90 rounded-[8px] lg:rounded-[17px]">
+            <Button className="bg-[#A0522D] w-[160px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-[#A0522D]/90 rounded-[8px] lg:rounded-[17px]" onClick={() => router.push("/shop")}>
               <p className="font-medium text-[16px] lg:text-[25px] text-white">
                 Browse products
               </p>

@@ -11,10 +11,10 @@ const LogosMarquee = () => {
   ];
 
   return (
-    <div className="w-full overflow-hidden bg-white py-6">
+    <div className="w-full overflow-hidden bg-[#F5F5DC] py-1">
       <div className="flex whitespace-nowrap animate-marquee">
         {/* Duplicate logos so it loops seamlessly */}
-        {[...logos, ...logos].map((logo, index) => (
+        {[...logos, ...logos, ...logos].map((logo, index) => (
           <div key={index} className="mx-8 flex-shrink-0">
             <Image
               src={logo}

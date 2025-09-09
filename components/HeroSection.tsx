@@ -7,10 +7,14 @@ import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import LogosMarquee from "./LogoMarquee";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const HeroSection = () => {
+  const router = useRouter();
+
   useGSAP(() => {
     const heroSplit = new SplitText(".title", { type: "chars, words" });
 
@@ -35,14 +39,17 @@ const HeroSection = () => {
 
   return (
     <section className="flex justify-center py-10 md:py-16 relative min-h-screen">
+      <div className="absolute left-0 right-0 bottom-0 z-20">
+        <LogosMarquee />
+      </div>
       <div
         className="absolute inset-0 bg-cover bg-center z-10"
         style={{ backgroundImage: `url(${"/assets/hero-bg2.jpg"})` }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
-      <div className="w-[95%] md:w-[90%] lg:w-[80%] z-20 mt-40">
+      <div className="w-[95%] md:w-[90%] lg:w-[80%] z-30 flex justify-center items-center">
         {/* Left Side (Text) */}
         <div className="space-y-10">
           <h1 className="text-[30px] max-md:px-10 text-center text-gray-200 md:text-5xl lg:text-[60px] font-bold">
@@ -60,14 +67,14 @@ const HeroSection = () => {
           </p>
 
           <div className="flex justify-center gap-5">
-            <Button className="bg-transparent border-[2px] border-white w-[160px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-black/50 rounded-[8px] lg:rounded-[17px]">
-              <p className="font-medium text-[16px] lg:text-[25px] text-[#EBEBEB]">
+            <Button className="bg-transparent border-[1px] border-white w-[160px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-black/50 rounded-[8px] lg:rounded-[17px]" onClick={() => router.push("/our-mission")}>
+              <p className="font-medium text-[12px] lg:text-[25px] text-[#EBEBEB]">
                 Contact
               </p>
             </Button>
 
-            <Button className="bg-white border-[2px] border-white w-[160px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-white/90 rounded-[8px] lg:rounded-[17px]">
-              <p className="font-medium text-[16px] lg:text-[25px] text-black">
+            <Button className="bg-white border-[2px] border-white w-[160px] h-[40px] lg:w-[273px] lg:h-[72px] cursor-pointer hover:bg-white/90 rounded-[8px] lg:rounded-[17px]" onClick={() => router.push("/shop")}>
+              <p className="font-medium text-[12px] lg:text-[25px] text-black">
                 Browse products
               </p>
             </Button>

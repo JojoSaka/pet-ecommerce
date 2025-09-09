@@ -30,7 +30,8 @@ const ItemCard = ({ product }: Product) => {
           background: "#A0522D",
           color: "#fff",
         },
-        className: "rounded-lg shadow-md font-medium text-xl border-none outline-none",
+        className:
+          "rounded-lg shadow-md font-medium text-xl border-none outline-none",
       });
       setOpen(true);
     } catch (error) {
@@ -42,7 +43,7 @@ const ItemCard = ({ product }: Product) => {
   return (
     <div className="relative group cursor-pointer max-md:mt-10">
       {/* Product Image */}
-      <div className="relative w-full h-[400px] rounded-[30px] overflow-hidden">
+      <div className="relative w-full h-[450px] rounded-[30px] overflow-hidden lg:border-r-6 hover:border-r-[#A0522D] transition-all duration-300">
         <Image
           src={image}
           alt="product"
@@ -60,7 +61,7 @@ const ItemCard = ({ product }: Product) => {
           max-md:opacity-100 max-md:translate-y-0"
         >
           <button
-            className="bg-[#A0522D] text-white text-[16px] lg:text-[20px] font-medium mx-5 mb-5 w-full py-3 rounded-[20px] shadow-lg cursor-pointer"
+            className="bg-[#A0522D] text-white text-[12px] lg:text-[20px] font-medium mx-5 mb-1 w-[60%] py-3 rounded-[20px] shadow-lg cursor-pointer"
             onClick={() => AddProductToCart()}
           >
             Add to Cart
@@ -69,13 +70,16 @@ const ItemCard = ({ product }: Product) => {
       </div>
 
       {/* Product Title */}
-      <div className="flex flex-col justify-center max-md:px-5">
-        <div className="flex justify-between mt-5">
-          <p className="text-center text-[24px]">{name}</p>
-          <p className="text-center text-[24px]">GHS {price}</p>
+      <div className="flex flex-col justify-center max-md:px-10">
+        <div className="flex justify-center gap-5 mt-5">
+          <p className="text-center text-[18px]">{name}</p>
+          <p className="text-center text-[18px]">GHS {price}</p>
         </div>
 
-        <button className="bg-[#A0522D] text-white text-[20px] lg:text-[30px] font-medium w-full py-3 rounded-[20px] shadow-lg cursor-pointer lg:hidden" onClick={() => AddProductToCart()}>
+        <button
+          className="bg-[#A0522D] text-white text-[18px] lg:text-[30px] font-medium w-full mt-2 py-2 rounded-[20px] shadow-lg cursor-pointer lg:hidden"
+          onClick={() => AddProductToCart()}
+        >
           Add to Cart
         </button>
       </div>
