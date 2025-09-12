@@ -28,7 +28,7 @@ const StoreSection = () => {
       </div>
 
       <div className="w-[90%] mx-auto grid grid-cols-1 max-md:hidden lg:grid-cols-3 gap-10">
-        {storeProducts.map((product) => (
+        {storeProducts.slice(0).map((product) => (
             <div key={product.id}>
               <ItemCard product={product} />
             </div>

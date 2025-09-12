@@ -17,17 +17,17 @@ const NewFooter = () => {
         <div className="flex gap-10">
           <div className="text-white space-y-5">
             <h4 className="font-bold text-xl">Links</h4>
-            <ul className="space-y-2">
+            <ul className="">
               <Link href={"/"}>
-                <li>Home</li>
+                <li className="pb-3">Home</li>
               </Link>
 
               <Link href={"/shop"}>
-                <li>Shop</li>
+                <li className="pb-3">Shop</li>
               </Link>
 
               <Link href={"/our-mission"}>
-                <li>Our Mission</li>
+                <li className="pb-3">Our Mission</li>
               </Link>
             </ul>
           </div>

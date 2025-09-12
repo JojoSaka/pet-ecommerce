@@ -8,7 +8,7 @@ type CartItemProps = {
 };
 
 const CartItem = ({ item }: CartItemProps) => {
-  const { toggleCartItemQuantity, onRemove } = useStateContext();
+  const { toggleCartItemQuantity, onRemove, decQty } = useStateContext();
 
   return (
     <div className="flex gap-5 justify-between w-full px-5">
@@ -31,8 +31,14 @@ const CartItem = ({ item }: CartItemProps) => {
             <p className="text-md font-bold">GHS {item.price}</p>
           </div>
 
-          <div className="cursor-pointer" onClick={() => onRemove(item)}>
-            <X size={20}/>
+          <div
+            className="cursor-pointer"
+            onClick={() => {
+              onRemove(item);
+              decQty();
+            }}
+          >
+            <X size={20} />
           </div>
         </div>
 

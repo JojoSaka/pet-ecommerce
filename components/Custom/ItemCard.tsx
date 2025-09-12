@@ -19,12 +19,13 @@ type Product = {
 
 const ItemCard = ({ product }: Product) => {
   const { name, price, image } = product;
-  const { onAdd } = useStateContext();
+  const { onAdd, incQty } = useStateContext();
   const { setOpen } = useCartSheet();
 
   const AddProductToCart = () => {
     try {
       onAdd(product, 1);
+      incQty();
       toast(`${product.name} added to Cart`, {
         style: {
           background: "#A0522D",

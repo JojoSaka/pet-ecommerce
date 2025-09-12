@@ -59,18 +59,18 @@ const Contact = () => {
         <h2>Where to Find Us</h2>
 
         <div className="text-gray-200 z-20">
-          <h3>Visit Our Bar</h3>
-          <p>456, Raq Blvd. #404, Los Angeles, CA 90210</p>
+          <h3>Visit Our Pet Shop</h3>
+          <p>Madina Post Office</p>
         </div>
 
         <div className="text-gray-200 z-20">
           <h3>Contact Us</h3>
           <p>(555) 987-6543</p>
-          <p>hello@jsmcocktail.com</p>
+          <p>becklil@gmail.com</p>
         </div>
 
         <div className="text-gray-200 z-20">
-          <h3>Open Every Day</h3>
+          <h3>Open Mon-Sat</h3>
           {openingHours.map((time) => (
             <p key={time.day}>
               {time.day} : {time.time}

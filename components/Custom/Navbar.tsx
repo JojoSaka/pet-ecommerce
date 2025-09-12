@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F5DC] py-5 shadow-lg">
       <div className="w-[100%] flex justify-center">
         <div className="flex justify-between items-center w-[90%]">
-          <div className="text-[20px] font-extrabold">BECKLIL&apos;S</div>
+          <div className="text-[20px] font-extrabold">BECKLILS A&P</div>
           <div className="flex items-center gap-30">
             <div>
               <ul className="flex gap-5 font-bold">

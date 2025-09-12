@@ -55,7 +55,7 @@ const ProductForm = () => {
   };
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen mx-5 my-5">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="pt-40">

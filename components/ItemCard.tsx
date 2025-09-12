@@ -9,7 +9,7 @@ type ItemProduct = {
 };
 
 const ItemCard = ({ product }: ItemProduct) => {
-  const { onAdd } = useStateContext();
+  const { onAdd, incQty } = useStateContext();
   const { setOpen } = useCartSheet();
 
   const AddProductToCart = () => {
@@ -41,6 +41,7 @@ const ItemCard = ({ product }: ItemProduct) => {
           onClick={() => {
             AddProductToCart();
             setOpen(true);
+            incQty();
           }}
         >
           <Image src={"/icons/add.png"} alt="add" width={30} height={30} />

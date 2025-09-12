@@ -41,14 +41,14 @@ export const navItems = [
   { name: "Home", href: "/" },
   { name: "Shop", href: "/shop" },
   // { name: "About", href: "/about" },
-  { name: "Our Mission", href: "/contact" },
+  { name: "Our Mission", href: "/our-mission" },
 ];
 
 export const MobileNavItems = [
   { name: "HOME", href: "/" },
   { name: "SHOP", href: "/shop" },
   // { name: "ABOUT", href: "/about" },
-  { name: "OUR MISSION", href: "/contact" },
+  { name: "OUR MISSION", href: "/our-mission" },
 ];
 
 export const PetProducts = [
@@ -88,10 +88,8 @@ export const storeInfo = {
 };
 
 export const openingHours = [
- { day: "Mon–Thu", time: "11:00am – 12am" },
- { day: "Fri", time: "11:00am – 2am" },
- { day: "Sat", time: "9:00am – 2am" },
- { day: "Sun", time: "9:00am – 1am" },
+ { day: "Mon–Fri", time: "9:00am – 7:00pm" },
+ { day: "Sat", time: "9:00am – 3pm" },
 ];
 
 export const socials = [

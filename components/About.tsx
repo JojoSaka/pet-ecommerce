@@ -29,13 +29,12 @@ const About = () => {
  
  return (
 	<div id="about">
-	 <div className="mb-16 md:px-0 px-5">
+	 <div className="mb-16 md:px-0 px-2">
 		<div className="content">
 		 <div className="md:col-span-8">
-			<p className="badge">Best Pet Products</p>
+			<p className="text-2xl font-medium py-5">Best Pet Products</p>
 			<h2>
-			 Where every detail matters <span className="text-white">-</span>
-				from fur to finish.
+			 Where every detail matters<br /> <span className="text-black">-{" "}</span>from fur to finish.
 			</h2>
 		 </div>
 		 

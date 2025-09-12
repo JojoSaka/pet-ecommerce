@@ -41,7 +41,7 @@ const MobileNav = () => {
 
               <SheetHeader>
                 <SheetTitle className="font-bold">
-                  Becklil&apos;s A&P
+                  BECKLILS A&P
                 </SheetTitle>
               </SheetHeader>
             </div>

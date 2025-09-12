@@ -30,9 +30,42 @@ export const StateContext = ({ children }: { children: ReactNode }) => {
     }
     return [];
   });
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [totalQuantities, setTotalQuantities] = useState(0);
-  const [qty, setQty] = useState(1);
+  const [totalPrice, setTotalPrice] = useState<number>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const stored = localStorage.getItem("totalPrice");
+        return stored ? Number(stored) : 0;
+      } catch (error) {
+        console.error("Failed to parse totalPrice from localStorage", error);
+        return 0;
+      }
+    }
+    return 0;
+  });
+  const [totalQuantities, setTotalQuantities] = useState<number>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const stored = localStorage.getItem("totalQuantities");
+        return stored ? Number(stored) : 0;
+      } catch (error) {
+        console.error("Failed to parse totalPrice from localStorage", error);
+        return 0;
+      }
+    }
+    return 0;
+  });
+  const [qty, setQty] = useState<number>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const stored = localStorage.getItem("qty");
+        return stored ? Number(stored) : 0;
+      } catch (error) {
+        console.error("Failed to parse totalPrice from localStorage", error);
+        return 0;
+      }
+    }
+    return 0;
+  });
 
   const onAdd = (product: Product, quantity: number) => {
     const checkProductInCart = cartItems.find((item) => item.id === product.id);
@@ -58,8 +91,12 @@ export const StateContext = ({ children }: { children: ReactNode }) => {
 
     const newCartItems = cartItems.filter((item) => item.id !== product.id);
 
-    setTotalPrice((prev) => prev - product.price * (foundProduct.quantity || 0));
-    setTotalQuantities((prev) => Math.max(0, prev - (foundProduct.quantity || 0)));
+    setTotalPrice(
+      (prev) => prev - product.price * (foundProduct.quantity || 0)
+    );
+    setTotalQuantities((prev) =>
+      Math.max(0, prev - (foundProduct.quantity || 0))
+    );
     setCartItems(newCartItems);
   };
 
@@ -92,7 +129,7 @@ export const StateContext = ({ children }: { children: ReactNode }) => {
   };
 
   const decQty = () => {
-    setQty((prev) => (prev - 1 < 1 ? 1 : prev - 1));
+    setQty((prev) => (prev - 1 < 0 ? 0 : prev - 1));
   };
 
   return (

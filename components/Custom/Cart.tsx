@@ -21,7 +21,7 @@ const Cart = ({
   open: boolean;
   onOpenChange: (val: boolean) => void;
 }) => {
-  const { totalPrice, totalQuantities, cartItems } = useStateContext();
+  const { totalPrice, totalQuantities, cartItems, qty } = useStateContext();
 
   const cartSummary = cartItems
     .map(
@@ -40,7 +40,10 @@ const Cart = ({
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+    localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+    localStorage.setItem("totalQuantities", JSON.stringify(totalQuantities));
+    localStorage.setItem("qty", JSON.stringify(qty));
+  }, [cartItems, totalPrice, totalQuantities, qty]);
 
   return (
     <div>
@@ -54,7 +57,7 @@ const Cart = ({
               <div className="space-y-3">
                 <SheetHeader>
                   <div className="flex justify-between items-center pt-2">
-                    <SheetTitle className="font-bold">{`Cart (${totalQuantities})`}</SheetTitle>
+                    <SheetTitle className="font-bold">{`Cart (${qty})`}</SheetTitle>
                     <SheetClose asChild>
                       <X stroke="black" size={20} className="cursor-pointer" />
                     </SheetClose>
@@ -90,7 +93,7 @@ const Cart = ({
               <div className="space-y-3">
                 <SheetHeader>
                   <div className="flex justify-between items-center pt-2">
-                    <SheetTitle className="font-bold">{`Cart (${totalQuantities})`}</SheetTitle>
+                    <SheetTitle className="font-bold">{`Cart (${qty})`}</SheetTitle>
                     <SheetClose asChild>
                       <X stroke="black" size={20} className="cursor-pointer" />
                     </SheetClose>
