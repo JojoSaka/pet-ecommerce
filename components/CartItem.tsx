@@ -28,7 +28,12 @@ const CartItem = ({ item }: CartItemProps) => {
         <div className="flex justify-between">
           <div className="text-md text-gray-800 space-y-2">
             <h4 className="font-bold">{item.name}</h4>
-            <p className="text-md font-bold">GHS {item.price}</p>
+            <p className="text-md font-bold">
+              {new Intl.NumberFormat("en-GH", {
+                style: "currency",
+                currency: "GHS",
+              }).format(item.price)}
+            </p>
           </div>
 
           <div
@@ -44,7 +49,13 @@ const CartItem = ({ item }: CartItemProps) => {
 
         <div className="flex justify-between items-center border border-gray-300 rounded-3xl p-3">
           {item.quantity < 2 ? (
-            <button className="cursor-pointer" onClick={() => onRemove(item)}>
+            <button
+              className="cursor-pointer"
+              onClick={() => {
+                onRemove(item);
+                decQty();
+              }}
+            >
               <Image src={"/icons/bin.png"} alt="bin" width={20} height={20} />
             </button>
           ) : (

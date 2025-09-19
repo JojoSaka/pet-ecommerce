@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect } from "react";
 import {
@@ -66,7 +66,7 @@ const Cart = ({
 
                 <div className="w-full border-[0.2px] border-black" />
 
-                <div className="space-y-5 h-[400px] overflow-y-auto">
+                <div className="space-y-5 h-[500px] overflow-y-auto">
                   {cartItems.map((item) => (
                     <div key={item.id}>
                       <CartItem item={item} />
@@ -75,11 +75,16 @@ const Cart = ({
                 </div>
               </div>
 
-              <div className="py-20 lg:py-5">
+              <div className="py-10 lg:py-5">
                 <div className="w-full border-[0.2px] border-black" />
                 <div className="flex justify-between py-5">
                   <h4>Subtotal</h4>
-                  <p>GHS {totalPrice}</p>
+                  <p>
+                    {new Intl.NumberFormat("en-GH", {
+                      style: "currency",
+                      currency: "GHS",
+                    }).format(totalPrice)}
+                  </p>
                 </div>
                 <Link href={whatsappLink} target="_blank">
                   <Button className="bg-[#A0522D] w-full h-[40px] cursor-pointer hover:bg-[#A0522D]/90 rounded-[8px] lg:rounded-full text-white">

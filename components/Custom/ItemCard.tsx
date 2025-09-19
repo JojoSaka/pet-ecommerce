@@ -74,7 +74,12 @@ const ItemCard = ({ product }: Product) => {
       <div className="flex flex-col justify-center max-md:px-10">
         <div className="flex justify-center gap-5 mt-5">
           <p className="text-center text-[18px]">{name}</p>
-          <p className="text-center text-[18px]">GHS {price}</p>
+          <p className="text-center text-[18px]">
+            {new Intl.NumberFormat("en-GH", {
+              style: "currency",
+              currency: "GHS",
+            }).format(price)}
+          </p>
         </div>
 
         <button
