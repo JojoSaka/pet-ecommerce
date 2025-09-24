@@ -35,7 +35,7 @@ const StoreSection = () => {
           ))}
       </div>
       <div className="w-[90%] mx-auto grid grid-cols-1 lg:hidden">
-        {storeProducts.slice(0.2).map((product) => (
+        {storeProducts.slice(0,1).map((product) => (
             <div key={product.id}>
               <ItemCard product={product} />
             </div>
